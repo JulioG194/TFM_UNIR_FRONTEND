@@ -1,0 +1,32 @@
+.c-card {
+    .custom-info-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px; 
+  
+      c-col {
+        &:first-child {
+          max-width: 150px; 
+          margin-right: 20px; 
+          img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%; 
+          }
+        }
+  
+        &:last-child {
+          width: calc(100% - 150px); 
+        }
+      }
+  
+      strong {
+        display: block; 
+        margin-bottom: 5px; 
+      }
+  
+      p {
+        margin: 0; 
+      }
+    }
+  }

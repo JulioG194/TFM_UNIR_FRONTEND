@@ -1,0 +1,60 @@
+// app.component.scss
+
+.custom-card {
+    text-align: left;
+  
+    .custom-header {
+      color: blue; // Color azul para el nombre
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  
+    .custom-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .custom-info-container {
+      display: flex;
+      align-items: center;
+    }
+  
+    .custom-avatar {
+      max-height: 100px;
+      max-width: 100px;
+      border-radius: 50%;
+      margin-right: 10px; // Ajusta el margen entre la imagen y el texto
+    }
+  
+    .info-text {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .custom-details {
+      width: 100%; // Ocupa todo el ancho disponible
+    }
+  
+    .right-align {
+      text-align: left; // Alinea a la derecha
+    }
+  
+    .bold-text {
+      font-weight: bold; // Hace el texto en negrita
+    }
+  
+    .custom-info {
+      margin-bottom: 5px;
+    }
+  }
+  
+  
+  :host {
+    .legend {
+      small {
+        font-size: x-small;
+      }
+    }
+  }
+  

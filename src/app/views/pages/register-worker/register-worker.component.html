@@ -1,0 +1,86 @@
+
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <c-container>
+      <c-row class="justify-content-center">
+        <c-col lg="7" md="9" xl="6">
+          <c-card class="mx-4">
+            <c-card-body class="p-4">
+              <form 
+              (ngSubmit)="register()"  
+              [validated]="customStylesValidated"
+              cForm
+              class="row g-3 needs-validation">
+              <h1>Registrarse como Reclutador</h1>
+              <p class="text-medium-emphasis">Crear cuenta</p>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>&#64;</span>
+                <input  
+                  name="username"
+                  autoComplete="username" 
+                  cFormControl 
+                  required
+                  [(ngModel)]="username" 
+                  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                  placeholder="Correo electrónico" 
+                  type="email"/>
+                  <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+                </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilLockLocked"></svg>
+                </span>
+                <input name="password"
+                    [(ngModel)]="password1" 
+                    autoComplete="current-password"
+                    cFormControl
+                    required
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    placeholder="Contraseña"
+                    type="password" />
+                  <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+                  <c-form-feedback [valid]="!passwordMismatchError">Las contraseñas no coinciden.</c-form-feedback>
+                </c-input-group>
+              <c-col xs="auto">
+                <span cFormText id="passwordHelpInline-1">
+                  Debe terner mínimo 8 caracteres, entre mayúsculas, minúsculas, números y símbolos.
+                </span>
+              </c-col>
+              <c-input-group class="mb-4">
+                <span cInputGroupText>
+                  <svg cIcon name="cilLockLocked"></svg>
+                </span>
+                <input name="password"
+                    [(ngModel)]="password2" 
+                    autoComplete="current-password"
+                    cFormControl
+                    required
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    placeholder="Contraseña"
+                    type="password" />
+                  <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+                  <c-form-feedback [valid]="passwordMismatchError">Las contraseñas no coinciden.</c-form-feedback>
+                </c-input-group>
+              <c-col xs="auto">
+                <span cFormText id="passwordHelpInline-1">
+                  Debe terner mínimo 8 caracteres, entre mayúsculas, minúsculas, números y símbolos.
+                </span>
+              </c-col>
+              <div class="d-grid">
+                <button cButton color="success" type="submit">Crear cuenta</button>
+              </div>
+            </form>
+              <c-row>
+                <c-col class="mb-12">
+                  <p class="text-medium-emphasis">Ya posee una cuenta?</p>
+                  <div class="d-grid g-3">
+                    <button cButton color="primary" routerLink="/login" type="submit">Ingresar</button>
+                  </div>
+                </c-col>
+              </c-row>
+            </c-card-body>
+          </c-card>
+        </c-col>
+      </c-row>
+    </c-container>
+  </div>
+  

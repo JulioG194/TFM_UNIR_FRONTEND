@@ -1,0 +1,44 @@
+<c-row>
+  <c-col lg>
+    <c-card class="mb-12">
+      <c-card-header>Detalles del Reclutador</c-card-header>
+      <c-card-body>
+        <div class="row">
+          <div class="col-md-2">
+            <img [src]="recruiter?.avatar" alt="{{ recruiter.email }}" class=" mb-2 custom-avatar"  width="100px" height="auto">
+          </div>
+          <div class="col-md-10">
+            <strong>{{ recruiter.name + ' ' + recruiter.surname }}</strong>
+            <p>{{ recruiter.employment }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Provincia:</strong> {{ recruiter.province }}</p>
+            <p><strong>Ciudad:</strong> {{ recruiter?.city }}</p>
+            <p><strong>Dirección:</strong> {{ recruiter.address }}</p>
+            <p><strong>Sexo:</strong> {{ recruiter.sex }}</p>
+          </div>
+          <div class="col-md-4">
+            <p><strong>Email:</strong> {{ recruiter.email }}</p>
+            <p><strong>Teléfono:</strong> {{ recruiter.phoneNumber }}</p>
+            <p><strong>Código Postal:</strong> {{ recruiter.postalCode }}</p>
+          </div>
+        </div>
+        <p><strong>Descripción:</strong> {{ recruiter.description }}</p>
+
+        <div class="row">
+          <div class="col-md-6">
+            <img [src]="recruiter.images[0]" alt="{{recruiter.images[0]}}" class="img-fluid mb-2">
+          </div>
+          <div class="col-md-6">
+            <img [src]="recruiter.images[1]" alt="{{recruiter.images[1]}}" class="img-fluid mb-2">
+          </div>
+        </div>
+
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
+<app-spinner *ngIf="loading"></app-spinner>

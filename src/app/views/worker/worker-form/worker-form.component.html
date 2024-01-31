@@ -1,0 +1,193 @@
+<c-card class="mb-4">
+    <c-card-body>
+        <form 
+            (ngSubmit)="updateWorker()"  
+            [validated]="customStylesValidated"
+            cForm
+            #form="ngForm"
+            class="row g-3 needs-validation" >
+            <c-col xs="12">
+                <label cLabel for="inputAddress">Correo</label>
+                <input 
+                    cFormControl 
+                    id="email" 
+                    type="text" 
+                    readonly 
+                    cFormControlName="email" 
+                    [(ngModel)]="email" 
+                    name="email" 
+                    placeholder="Correo electrónico"  />
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+            </c-col>
+            <c-col md="6">
+                <label cLabel for="inputImages">Foto de perfil</label>
+                <input aria-label="file example"
+                       cFormControl
+                       (change)="onFileSelected($event)"
+                       id="photoName"
+                       required
+                       name="photoName"
+                       type="file"
+                />
+                <c-form-feedback [valid]="false">Ingrese al menos una imagen</c-form-feedback>
+            </c-col>
+            <c-col md="6">
+                <img *ngIf="avatar" [src]="avatar" alt="Cargada"  width="100px" height="auto"/>
+            </c-col>
+            <c-col md="6">
+                <label cLabel for="inputEmail4">Nombre</label>
+                <input 
+                    cFormControl 
+                    required
+                    id="name" 
+                    type="text" 
+                    cFormControlName="name" 
+                    [(ngModel)]="name" 
+                    name="name" 
+                    placeholder="Nombre"  />
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+            </c-col>
+            <c-col md="6">
+                <label cLabel for="inputPassword4">Apellido</label>
+                <input 
+                    cFormControl 
+                    required
+                    id="surname" 
+                    type="text" 
+                    cFormControlName="surname" 
+                    [(ngModel)]="surname" 
+                    name="surname" 
+                    placeholder="Apellido"  />
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+        
+            </c-col>
+            <c-col md="4">
+                <label cLabel for="inputEmail4">Ocupación</label>
+                <input 
+                    cFormControl 
+                    required
+                    id="employment" 
+                    type="text" 
+                    cFormControlName="employment" 
+                    [(ngModel)]="employment" 
+                    name="employment" 
+                    placeholder="Ocupación"  />
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+        
+            </c-col>
+            <c-col md="4">
+                <label cLabel for="inputPassword4">Telefono</label>
+                <input 
+                    cFormControl 
+                    required
+                    id="phoneNumber" 
+                    type="text" 
+                    cFormControlName="phoneNumber" 
+                    [(ngModel)]="phoneNumber" 
+                    name="phoneNumber" 
+                    placeholder="Teléfono"  />
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+            </c-col>
+            <c-col md="4">
+                <label cLabel for="inputState">Sexo</label>
+                <select cSelect id="inputState" required [(ngModel)]="sexo" name="sexo">
+                <option value="">Seleccionar...</option>
+                <option *ngFor="let s of sex">{{ s }}</option>
+                </select>
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+            </c-col>
+            <c-col xs="12">
+                <label cLabel for="inputAddress">Descripción</label>
+                <input 
+                    cFormControl 
+                    required
+                    id="description" 
+                    type="text" 
+                    cFormControlName="description" 
+                    [(ngModel)]="description" 
+                    name="description" 
+                    placeholder="Descripción"  />
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+            </c-col>
+            <c-col md="4">
+                <label cLabel for="inputState">Provincia</label>
+                <select cSelect id="inputState" required [(ngModel)]="province" name="province">
+                <option value="">Seleccionar...</option>
+                <option *ngFor="let p of state">{{ p }}</option>
+                </select>
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+            </c-col>
+            <c-col md="6">
+                <label cLabel for="inputCity">Ciudad</label>
+                <input 
+                    cFormControl 
+                    required
+                    id="city" 
+                    type="text" 
+                    cFormControlName="city" 
+                    [(ngModel)]="city" 
+                    name="city" 
+                    placeholder="Ciudad"  />
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+            </c-col>
+            <c-col md="2">
+                <label cLabel for="inputZip">Codigo Postal</label>
+                <input 
+                    cFormControl 
+                    required
+                    id="postalCode" 
+                    type="text" 
+                    cFormControlName="postalCode" 
+                    [(ngModel)]="postalCode" 
+                    name="postalCode" 
+                    placeholder="Código postal"  />
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+            
+            </c-col>
+            <c-col xs="12">
+                <label cLabel for="inputAddress2">Direccion</label>
+                <input 
+                    cFormControl 
+                    required
+                    id="address" 
+                    type="text" 
+                    cFormControlName="address" 
+                    [(ngModel)]="address" 
+                    name="address" 
+                    placeholder="Dirección"  />
+                <c-form-feedback [valid]="false">Campo requerido</c-form-feedback>
+                
+            </c-col>
+            <c-col md="12">
+                <label cLabel for="inputImages">Trabajo realizado</label>
+                <input aria-label="file example"
+                       cFormControl
+                       (change)="onWorkSelected($event)"
+                       id="validationText1"
+                       required
+                       type="file"
+                       multiple 
+                       accept="image/*"
+                />
+                <c-form-feedback [valid]="imageUrls.length > 0">Ingrese al menos una imagen</c-form-feedback>
+            </c-col>
+            <c-col md="12">
+                <div class="image-container">
+                    <div *ngFor="let imageUrl of imageUrls">
+                        <img [src]="imageUrl" alt="Cargada"  width="150px" height="auto"/>
+                    </div>
+                </div>
+            </c-col>
+            <c-col xs="12">
+                <button cButton type="submit">Actualizar Información</button>
+            </c-col>
+        </form>
+    </c-card-body>
+</c-card>
+<app-spinner *ngIf="loading"></app-spinner>
+<app-messages 
+*ngIf="show"
+  [alertColor]="alertColor"
+  [iconName]="iconName"
+  [message]="message">
+</app-messages>

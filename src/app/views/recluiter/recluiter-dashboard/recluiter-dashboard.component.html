@@ -1,0 +1,24 @@
+<c-row>
+    <c-col xs>
+      <c-card class="mb-12">
+        <c-card-header>Encuentra un trabajador</c-card-header>
+        <c-card-body>
+          <div class="custom-info-container">
+            <c-input-group class="input-prepend">
+                <span cInputGroupText>
+                    <svg cIcon name="cilMagnifyingGlass"></svg>
+                </span>
+                <input cFormControl [(ngModel)]="searchTerm" placeholder="Encuentra un trabajdor conforme a tus necesidades" type="text" />
+                <button cButton color="info" (click)="searchWorkers()">Buscar</button>
+            </c-input-group>
+        </div>
+          <c-row class="align-items-start">
+            <app-widgets-worker (openWorkerDetails)="openWorkerDetails($event)"></app-widgets-worker>
+          </c-row>
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row>
+  
+  <app-spinner *ngIf="loading"></app-spinner>
+  

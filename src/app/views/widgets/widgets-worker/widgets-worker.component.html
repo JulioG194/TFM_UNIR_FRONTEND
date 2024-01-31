@@ -1,0 +1,26 @@
+<c-row>
+  <c-col *ngFor="let worker of workerData" class="col-12">
+    <c-card class="custom-card" >
+      <c-card-body class="custom-body">
+        <div class="custom-info-container" (click)="toggleDetails(worker)">
+          <img [src]="worker.avatar" alt="{{ worker.name }}" class="img-fluid mb-2 custom-avatar" width="100px" height="auto">
+          <div class="info-text">
+            <strong>{{ worker.name + ' ' + worker.surname }}</strong>
+            <p class="custom-info"> {{ worker.phoneNumber }}</p>
+            <p class="custom-info">{{ worker.employment }}</p>
+            <div class="custom-info-container" (click)="toggleDetails(worker)">
+              <span cInputGroupText>
+                <svg cIcon *ngIf="isDetailsVisible" name="cilArrowThickSquareUp"></svg>
+            </span>
+            </div>
+          </div>
+         
+        </div>
+        <div class="custom-details" *ngIf="selectedWorker === worker">
+          <p class="custom-info right-align">{{ worker.city }}</p>
+          <p class="custom-info right-align bold-text">Descripción: </p> <span right-align>{{ worker.description }}</span>
+        </div>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
